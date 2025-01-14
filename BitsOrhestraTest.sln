@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsOrchestraTest.Web", "BitsOrhestraTest\BitsOrchestraTest.Web.csproj", "{D91AE9B3-82DF-4DFE-AF2A-1E0AEE9A13D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsOrchestraTest.Contracts", "BitsOrchestra.Contracts\BitsOrchestraTest.Contracts.csproj", "{DBCECF3C-3DDF-468B-A852-04A6AB30790C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsOrchestraTest.Core", "BitsOrchestraTest.Core\BitsOrchestraTest.Core.csproj", "{8C58153E-DCDE-4A77-BAE3-5F1E48D1EAB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsOrchestraTest.Persistence", "BitsOrchestra.Persistence\BitsOrchestraTest.Persistence.csproj", "{51DAAA45-10E1-400D-9C15-CE31E82161DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsOrchestraTest.Domains", "BitsOrchestraTest.Domains\BitsOrchestraTest.Domains.csproj", "{C459143F-0A79-46AD-BD11-016E844A1FB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitsOrchestraTest.DIModules", "BitsOrchestraTest.DIModules\BitsOrchestraTest.DIModules.csproj", "{BEE4D55F-7D7D-4D5C-BECE-59EBABF01D7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D91AE9B3-82DF-4DFE-AF2A-1E0AEE9A13D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91AE9B3-82DF-4DFE-AF2A-1E0AEE9A13D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91AE9B3-82DF-4DFE-AF2A-1E0AEE9A13D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91AE9B3-82DF-4DFE-AF2A-1E0AEE9A13D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBCECF3C-3DDF-468B-A852-04A6AB30790C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBCECF3C-3DDF-468B-A852-04A6AB30790C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBCECF3C-3DDF-468B-A852-04A6AB30790C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBCECF3C-3DDF-468B-A852-04A6AB30790C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C58153E-DCDE-4A77-BAE3-5F1E48D1EAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C58153E-DCDE-4A77-BAE3-5F1E48D1EAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C58153E-DCDE-4A77-BAE3-5F1E48D1EAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C58153E-DCDE-4A77-BAE3-5F1E48D1EAB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DAAA45-10E1-400D-9C15-CE31E82161DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51DAAA45-10E1-400D-9C15-CE31E82161DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51DAAA45-10E1-400D-9C15-CE31E82161DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51DAAA45-10E1-400D-9C15-CE31E82161DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C459143F-0A79-46AD-BD11-016E844A1FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C459143F-0A79-46AD-BD11-016E844A1FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C459143F-0A79-46AD-BD11-016E844A1FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C459143F-0A79-46AD-BD11-016E844A1FB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE4D55F-7D7D-4D5C-BECE-59EBABF01D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE4D55F-7D7D-4D5C-BECE-59EBABF01D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE4D55F-7D7D-4D5C-BECE-59EBABF01D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE4D55F-7D7D-4D5C-BECE-59EBABF01D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

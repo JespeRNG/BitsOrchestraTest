@@ -1,0 +1,116 @@
+﻿@model IEnumerable<BitsOrchestraTest.Models.ContactModel>
+
+@{
+    ViewBag.Title = "Contacts";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacts</title>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+    <h2>Contacts</h2>
+
+    <form enctype="multipart/form-data" action="@Url.Action("UploadCSV", "Home")" method="post">
+        <input type="file" name="file" />
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+    <table id="contactsTable" class="display">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Married</th>
+                <th>Phone</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="row-@item.EncryptedId">
+                    <td><input type="text" value="@item.Name" id="name-@item.EncryptedId" class="form-control" readonly /></td>
+                    <td><input type="date" value="@item.DateOfBirth.ToString("yyyy-MM-dd")" id="dob-@item.EncryptedId" class="form-control" readonly /></td>
+                    <td><input type="checkbox" @(item.Married ? "checked" : "") id="married-@item.EncryptedId" /></td>
+                    <td><input type="text" value="@item.Phone" id="phone-@item.EncryptedId" class="form-control" /></td>
+                    <td><input type="number" value="@item.Salary" id="salary-@item.EncryptedId" class="form-control" /></td>
+                    <td>
+                        <button class="btn btn-primary" onclick="updateContact('@item.EncryptedId')">Save</button>
+                        <button class="btn btn-danger" onclick="deleteContact('@item.EncryptedId')">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section scripts {
+        <script>
+        $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
+            try {
+                var response = JSON.parse(jqxhr.responseText);
+                if (response.error) {
+                    alert("Error: " + response.message + "\nDetails: " + response.details);
+                } else {
+                    alert("An unexpected error occurred.");
+                }
+            } catch (e) {
+                alert("An error occurred, but the response was not in the expected format.");
+            }
+        });
+
+        $(document).ready(function () {
+            console.log('Initializing DataTable');
+            $('#contactsTable').DataTable({
+                "order": [[0, 'asc']],
+                "columnDefs": [
+                    { "orderable": true, "targets": [0, 1, 2, 3, 4] }
+                ]
+            });
+        });
+
+        async function updateContact(encryptedId) {
+            const contact = {
+                EncryptedId: encryptedId,
+                Name: document.getElementById(`name-${encryptedId}`).value,
+                DateOfBirth: document.getElementById(`dob-${encryptedId}`).value,
+                Married: document.getElementById(`married-${encryptedId}`).checked,
+                Phone: document.getElementById(`phone-${encryptedId}`).value,
+                Salary: document.getElementById(`salary-${encryptedId}`).value
+            };
+
+            const response = await fetch('/Home/Edit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(contact)
+            });
+
+            if (!response.ok) {
+                alert('Failed to update contact.');
+            }
+        }
+
+        async function deleteContact(encryptedId) {
+            if (confirm('Are you sure you want to delete this contact?')) {
+                const response = await fetch(`/Home/Delete?encryptedId=${encryptedId}`, {
+                    method: 'POST'
+                });
+
+                if (response.ok) {
+                    document.getElementById(`row-${encryptedId}`).remove();
+                    alert('Contact deleted successfully!');
+                } else {
+                    alert('Failed to delete contact.');
+                }
+            }
+        }
+        </script>
+    }
+</body>
+</html>
